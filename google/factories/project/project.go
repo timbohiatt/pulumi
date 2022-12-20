@@ -1,6 +1,8 @@
 package project
 
 import (
+	"fmt"
+
 	"github.com/pulumi/pulumi-gcp/sdk/v6/go/gcp/organizations"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -49,4 +51,8 @@ func (factory *Factory) Create(ctx *pulumi.Context) (err error) {
 	// Return the Factory & Error
 	return err
 
+}
+
+func main() {
+	fmt.Println("Running...")
 }
