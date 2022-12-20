@@ -8,16 +8,16 @@ import (
 )
 
 type Settings struct {
-	run_tests bool
+	RunTests bool
 }
 
 type Args struct {
-	billing_account string
-	name            string
-	parent_folder   string
-	parent_org      string
-	prefix          string
-	services        []string
+	BillingAccount string
+	Name           string
+	ParentFolder   string
+	ParentOrg      string
+	Prefix         string
+	Services       []string
 }
 
 type Factory struct {
@@ -32,14 +32,14 @@ func (factory *Factory) Create(ctx *pulumi.Context) (err error) {
 	args := &organizations.ProjectArgs{}
 
 	// Confgure Google Cloud Project - Pulumi Arguments
-	args.Name = pulumi.String(factory.Args.name)
-	args.ProjectId = pulumi.String(factory.Args.name)
-	args.BillingAccount = pulumi.String(factory.Args.name)
+	args.Name = pulumi.String(factory.Args.Name)
+	args.ProjectId = pulumi.String(factory.Args.Name)
+	args.BillingAccount = pulumi.String(factory.Args.Name)
 	args.AutoCreateNetwork = pulumi.Bool(false)
-	if factory.Args.parent_folder != "" {
-		args.FolderId = pulumi.String(factory.Args.parent_folder)
+	if factory.Args.ParentFolder != "" {
+		args.FolderId = pulumi.String(factory.Args.ParentFolder)
 	} else {
-		args.OrgId = pulumi.String(factory.Args.parent_org)
+		args.OrgId = pulumi.String(factory.Args.ParentOrg)
 	}
 
 	//args.Labels = [],
