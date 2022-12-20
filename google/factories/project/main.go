@@ -1,4 +1,4 @@
-package main
+package project
 
 import (
 	"github.com/pulumi/pulumi-gcp/sdk/v6/go/gcp/organizations"
