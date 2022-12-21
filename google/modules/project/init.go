@@ -3,7 +3,7 @@
  * File: init.go
  */
 
-package project
+package Project
 
 import (
 	"fmt"
