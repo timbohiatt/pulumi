@@ -46,4 +46,4 @@ jobs:
     - release
     runs-on: ubuntu-latest
     steps:
-    - run: curl https://sum.golang.org/lookup/github.com/${{ github.repository }}@${{jobs.tag.outputs.new_tag}}
+    - run: curl https://sum.golang.org/lookup/github.com/${{ github.repository }}@${{needs.tag.outputs.new_tag}}
