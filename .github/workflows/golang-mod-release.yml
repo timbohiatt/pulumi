@@ -6,7 +6,7 @@ on:
       - develop
 jobs:
   tag:
-    name: Tag Go Module Version
+    name: Tag New GO Module Version
     runs-on: ubuntu-latest
     steps:
     - id: checkout
@@ -27,7 +27,7 @@ jobs:
     outputs:
       new_tag: ${{ steps.tag.outputs.new_tag }} 
   release:
-    name: Release & Publish Go Module Version
+    name: Publish New Go Module
     runs-on: ubuntu-latest
     needs: 
     - tag
@@ -38,7 +38,7 @@ jobs:
         go-version: '^1.19' # The Go version to download (if necessary) and use.
     - run: GOPROXY=proxy.golang.org go list -m github.com/${{ github.repository }}@${{ needs.tag.outputs.new_tag }}
   validate:
-    name: Validate the Availability of Go Module Version
+    name: Validate Go Module
     needs: 
     - tag
     - release
