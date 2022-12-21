@@ -10,5 +10,5 @@ import (
 )
 
 func init() {
-	fmt.Println("[google/factories/project] initializing Pulumi Google Cloud Project Factory ...")
+	fmt.Println("[google/modules/project] initializing Pulumi Google Cloud Project Module ...")
 }

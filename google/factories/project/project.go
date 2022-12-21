@@ -1,10 +1,9 @@
 package project
 
 import (
-	"fmt"
-
 	"github.com/pulumi/pulumi-gcp/sdk/v6/go/gcp/organizations"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/timbohiatt/pulumi/google/module/project"
 )
 
 type Settings struct {
@@ -28,31 +27,32 @@ type Factory struct {
 
 func (factory *Factory) Create(ctx *pulumi.Context) (err error) {
 
+	// Create Project
+
 	// Create Pulumi Google Cloud Project Arguments Object
-	args := &organizations.ProjectArgs{}
+	project := &project.Module{}
 
 	// Confgure Google Cloud Project - Pulumi Arguments
-	args.Name = pulumi.String(factory.Args.Name)
-	args.ProjectId = pulumi.String(factory.Args.Name)
-	args.BillingAccount = pulumi.String(factory.Args.Name)
-	args.AutoCreateNetwork = pulumi.Bool(false)
+	project.Args.Name = factory.Args.Name
+	project.Args.ProjectId = factory.Args.Name
+	project.Args.BillingAccount = factory.Args.Name
+	project.Args.AutoCreateNetwork = false
 	if factory.Args.ParentFolder != "" {
-		args.FolderId = pulumi.String(factory.Args.ParentFolder)
+		project.Args.FolderId = factory.Args.ParentFolder
 	} else {
-		args.OrgId = pulumi.String(factory.Args.ParentOrg)
+		project.Args.OrgId = factory.Args.ParentOrg
 	}
 
-	//args.Labels = [],
-	project, err := organizations.NewProject(ctx, "project", args)
+	// Create the Project from Module
+	err = project.Create(ctx)
+	if err != nil {
+		return err
+	}
+	factory.Project = project.Project
 
-	ctx.Export("project", project)
-	factory.Project = project
+	// Create Service Account
 
 	// Return the Factory & Error
 	return err
 
-}
-
-func main() {
-	fmt.Println("Running...")
 }
