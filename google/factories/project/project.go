@@ -4,8 +4,8 @@ import (
 	"github.com/pulumi/pulumi-gcp/sdk/v6/go/gcp/organizations"
 	"github.com/pulumi/pulumi-gcp/sdk/v6/go/gcp/serviceaccount"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/timbohiatt/pulumi/google/module/project"
-	"github.com/timbohiatt/pulumi/google/module/serviceAccount"
+	"github.com/timbohiatt/pulumi/google/modules/project"
+	"github.com/timbohiatt/pulumi/google/modules/serviceAccount"
 )
 
 type Settings struct {
@@ -38,7 +38,7 @@ func (factory *Factory) Create(ctx *pulumi.Context) (err error) {
 	// Confgure Google Cloud Project - Pulumi Arguments
 	project.Args.Name = factory.Args.Name
 	project.Args.ProjectId = factory.Args.Name
-	project.Args.BillingAccount = factory.Args.Name
+	project.Args.BillingAccount = factory.Args.BillingAccount
 	project.Args.AutoCreateNetwork = false
 	if factory.Args.ParentFolder != "" {
 		project.Args.FolderId = factory.Args.ParentFolder

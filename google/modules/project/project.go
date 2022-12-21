@@ -32,7 +32,7 @@ func (module *Module) Create(ctx *pulumi.Context) (err error) {
 	// Confgure Google Cloud Project - Pulumi Arguments
 	args.Name = pulumi.String(module.Args.Name)
 	args.ProjectId = pulumi.String(module.Args.Name)
-	args.BillingAccount = pulumi.String(module.Args.Name)
+	args.BillingAccount = pulumi.String(module.Args.BillingAccount)
 	args.AutoCreateNetwork = pulumi.Bool(false)
 	if module.Args.ParentFolder != "" {
 		args.FolderId = pulumi.String(module.Args.ParentFolder)

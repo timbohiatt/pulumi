@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} is releasing a new Go Module version 🚀
 on:
   push:
     branches:
-      - develop
+      - main
 jobs:
   tag:
     name: Tag New Go Module
