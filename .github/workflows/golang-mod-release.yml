@@ -23,6 +23,8 @@ jobs:
         PRERELEASE_SUFFIX: "alpha"
   release:
     runs-on: ubuntu-latest
+    needs: 
+    - tag
     steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-go@v3
@@ -30,6 +32,9 @@ jobs:
         go-version: '^1.19' # The Go version to download (if necessary) and use.
     - run: GOPROXY=proxy.golang.org go list -m ${{ github.server_url }}/${{ github.repository }}@{{needs.tag.outputs.new_tag}}
   validate:
+    needs: 
+    - tag
+    - release
     runs-on: ubuntu-latest
     steps:
     - run: curl ${{ github.server_url }}/${{ github.repository }}@{{needs.tag.outputs.new_tag}}
