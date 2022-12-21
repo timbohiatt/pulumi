@@ -5,11 +5,13 @@ go 1.19
 require (
 	github.com/pulumi/pulumi-gcp/sdk/v6 v6.45.0
 	github.com/pulumi/pulumi/sdk/v3 v3.50.0
-	github.com/timbohiatt/pulumi/google/modules/project v0.0.0-20221221142820-b60b851c2174
-	github.com/timbohiatt/pulumi/google/modules/serviceAccount v0.0.0-20221221142820-b60b851c2174
+	github.com/timbohiatt/pulumi/google/modules/project v0.0.0-20221221161649-5947f48183af
+	github.com/timbohiatt/pulumi/google/modules/serviceAccount v0.0.0-20221221161649-5947f48183af
+
 )
 
 require (
+	github.com/HdrHistogram/hdrhistogram-go v1.1.2 // indirect
 	github.com/Microsoft/go-winio v0.6.0 // indirect
 	github.com/ProtonMail/go-crypto v0.0.0-20221026131551-cf6655e29de4 // indirect
 	github.com/acomagu/bufpipe v1.0.3 // indirect
@@ -34,7 +36,6 @@ require (
 	github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 // indirect
 	github.com/kevinburke/ssh_config v1.2.0 // indirect
 	github.com/mattn/go-runewidth v0.0.14 // indirect
-	github.com/mitchellh/go-homedir v1.1.0 // indirect
 	github.com/mitchellh/go-ps v1.0.0 // indirect
 	github.com/opentracing/basictracer-go v1.1.0 // indirect
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
