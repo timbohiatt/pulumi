@@ -3,6 +3,13 @@ module github.com/timbohiatt/pulumi/google/factories/project
 go 1.19
 
 require (
+	github.com/pulumi/pulumi-gcp/sdk/v6 v6.45.0
+	github.com/pulumi/pulumi/sdk/v3 v3.50.0
+	github.com/timbohiatt/pulumi/google/modules/project v0.0.0-20221221142820-b60b851c2174
+	github.com/timbohiatt/pulumi/google/modules/serviceAccount v0.0.0-20221221142820-b60b851c2174
+)
+
+require (
 	github.com/Microsoft/go-winio v0.5.2 // indirect
 	github.com/ProtonMail/go-crypto v0.0.0-20210428141323-04723f9f07d7 // indirect
 	github.com/acomagu/bufpipe v1.0.3 // indirect
@@ -32,8 +39,6 @@ require (
 	github.com/opentracing/opentracing-go v1.1.0 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pkg/term v1.1.0 // indirect
-	github.com/pulumi/pulumi-gcp/sdk/v6 v6.45.0 // indirect
-	github.com/pulumi/pulumi/sdk/v3 v3.50.0 // indirect
 	github.com/rivo/uniseg v0.2.0 // indirect
 	github.com/rogpeppe/go-internal v1.8.1 // indirect
 	github.com/sabhiram/go-gitignore v0.0.0-20180611051255-d3107576ba94 // indirect
@@ -42,8 +47,6 @@ require (
 	github.com/spf13/cobra v1.4.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/texttheater/golang-levenshtein v0.0.0-20191208221605-eb6844b05fc6 // indirect
-	github.com/timbohiatt/pulumi/google/modules/project v0.0.0-20221221142820-b60b851c2174 // indirect
-	github.com/timbohiatt/pulumi/google/modules/serviceAccount v0.0.0-20221221142820-b60b851c2174 // indirect
 	github.com/tweekmonster/luser v0.0.0-20161003172636-3fa38070dbd7 // indirect
 	github.com/uber/jaeger-client-go v2.22.1+incompatible // indirect
 	github.com/uber/jaeger-lib v2.2.0+incompatible // indirect
