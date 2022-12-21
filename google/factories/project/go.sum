@@ -135,12 +135,10 @@ github.com/stretchr/testify v1.4.0/go.mod h1:j7eGeouHqKxXV5pUuKE4zz7dFj8WfuZ+81P
 github.com/stretchr/testify v1.7.0/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
 github.com/texttheater/golang-levenshtein v0.0.0-20191208221605-eb6844b05fc6 h1:9VTskZOIRf2vKF3UL8TuWElry5pgUpV1tFSe/e/0m/E=
 github.com/texttheater/golang-levenshtein v0.0.0-20191208221605-eb6844b05fc6/go.mod h1:XDKHRm5ThF8YJjx001LtgelzsoaEcvnA7lVWz9EeX3g=
-github.com/timbohiatt/pulumi/google v0.0.0-20221221142820-b60b851c2174 h1:PHSrdUBGLplQENsfV0dbFwOB3ZxqQivrRagQMAy3Vls=
-github.com/timbohiatt/pulumi/google v0.0.0-20221221142820-b60b851c2174/go.mod h1:hZFxwHnmXTu7EWIDd+vVdR3fhROcWwU7ivRtK21qAj8=
-github.com/timbohiatt/pulumi/google/modules v0.0.0-20221221142820-b60b851c2174 h1:QPkMXBZXy/0fBVv1jbwXDrVFo1SAccvwJLkUuzTbZ3o=
-github.com/timbohiatt/pulumi/google/modules v0.0.0-20221221142820-b60b851c2174/go.mod h1:25YLzYCXs0H40kgiRTbDjafN2Z8h2dUdwwYLEzXkqxY=
 github.com/timbohiatt/pulumi/google/modules/project v0.0.0-20221221142820-b60b851c2174 h1:ebY6JzomDFITRhe0KEjXRQNPs9z/zpVvuuXJbWi88xM=
 github.com/timbohiatt/pulumi/google/modules/project v0.0.0-20221221142820-b60b851c2174/go.mod h1:xP86uadAUlmgjHHP7TjltoOeysfN4+Od51aMxr+ThDc=
+github.com/timbohiatt/pulumi/google/modules/serviceAccount v0.0.0-20221221142820-b60b851c2174 h1:6X8L9zpfNnb+vKDWmYA+mZUqjSvCVDt025zyJ43Awkc=
+github.com/timbohiatt/pulumi/google/modules/serviceAccount v0.0.0-20221221142820-b60b851c2174/go.mod h1:3DLOPqpDXrqd9VHQnZCIxu86Qqqy1d17MRkZ3S2bwMI=
 github.com/tweekmonster/luser v0.0.0-20161003172636-3fa38070dbd7 h1:X9dsIWPuuEJlPX//UmRKophhOKCGXc46RVIGuttks68=
 github.com/tweekmonster/luser v0.0.0-20161003172636-3fa38070dbd7/go.mod h1:UxoP3EypF8JfGEjAII8jx1q8rQyDnX8qdTCs/UQBVIE=
 github.com/uber/jaeger-client-go v2.22.1+incompatible h1:NHcubEkVbahf9t3p75TOCR83gdUHXjRJvjoBh1yACsM=
