@@ -34,7 +34,7 @@ jobs:
         go-version: '^1.19' # The Go version to download (if necessary) and use.
     - run: echo "Hello World"
     - run: echo ${{needs.tag.outputs.new_tag}}
-    - run: GOPROXY=proxy.golang.org go list -m github.com/${{ github.repository }}@${{needs.tag.outputs.new_tag}}
+    - run: GOPROXY=proxy.golang.org go list -m github.com/${{ github.repository }}@${{jobs.tag.outputs.new_tag}}
   validate:
     name: Validate the Availability of Go Module Version
     needs: 
@@ -42,4 +42,4 @@ jobs:
     - release
     runs-on: ubuntu-latest
     steps:
-    - run: curl https://sum.golang.org/lookup/github.com/${{ github.repository }}@${{needs.tag.outputs.new_tag}}
+    - run: curl https://sum.golang.org/lookup/github.com/${{ github.repository }}@${{jobs.tag.outputs.new_tag}}
