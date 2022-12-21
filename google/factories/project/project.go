@@ -38,7 +38,7 @@ func (factory *Factory) Create(ctx *pulumi.Context) (err error) {
 	// Confgure Google Cloud Project - Pulumi Arguments
 	project.Args.Name = factory.Args.Name
 	project.Args.ProjectId = factory.Args.Name
-	project.Args.BillingAccount = factory.Args.Name
+	project.Args.BillingAccount = factory.Args.BillingAccount
 	project.Args.AutoCreateNetwork = false
 	if factory.Args.ParentFolder != "" {
 		project.Args.FolderId = factory.Args.ParentFolder
