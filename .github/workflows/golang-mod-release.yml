@@ -28,8 +28,8 @@ jobs:
     - uses: actions/setup-go@v3
       with:
         go-version: '^1.19' # The Go version to download (if necessary) and use.
-    - run: GOPROXY=proxy.golang.org go list -m ${{ github.server_url }}/${{ github.repository }}/pulumi@{{needs.tag.outputs.new_tag}}
+    - run: GOPROXY=proxy.golang.org go list -m ${{ github.server_url }}/${{ github.repository }}@{{needs.tag.outputs.new_tag}}
   validate:
     runs-on: ubuntu-latest
     steps:
-    - run: curl ${{ github.server_url }}/${{ github.repository }}/pulumi@{{needs.tag.outputs.new_tag}}
+    - run: curl ${{ github.server_url }}/${{ github.repository }}@{{needs.tag.outputs.new_tag}}
