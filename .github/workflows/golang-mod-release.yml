@@ -6,6 +6,7 @@ on:
       - develop
 jobs:
   tag:
+    name: Tag Go Module Version
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -22,6 +23,7 @@ jobs:
         PRERELEASE: true
         PRERELEASE_SUFFIX: "alpha"
   release:
+    name: Release & Publish Go Module Version
     runs-on: ubuntu-latest
     needs: 
     - tag
@@ -30,11 +32,12 @@ jobs:
     - uses: actions/setup-go@v3
       with:
         go-version: '^1.19' # The Go version to download (if necessary) and use.
-    - run: GOPROXY=proxy.golang.org go list -m ${{ github.server_url }}/${{ github.repository }}@{{needs.tag.outputs.new_tag}}
+    - run: GOPROXY=proxy.golang.org go list -m github.com/${{ GITHUB_REPOSITORY }}@{{needs.tag.outputs.new_tag}}
   validate:
+    name: Validate the Availability of Go Module Version
     needs: 
     - tag
     - release
     runs-on: ubuntu-latest
     steps:
-    - run: curl ${{ github.server_url }}/${{ github.repository }}@{{needs.tag.outputs.new_tag}}
+    - run: curl https://sum.golang.org/lookup/github.com/${{ GITHUB_REPOSITORY }}@{{needs.tag.outputs.new_tag}}
