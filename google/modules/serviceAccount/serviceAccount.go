@@ -58,7 +58,7 @@ func (module *Module) Create(ctx *pulumi.Context) (err error) {
 	ctx.Export("service-account", serviceAccount)
 	module.ServiceAccount = serviceAccount
 
-	// Return the MOdule & Error
+	// Return the Module & Error
 	return err
 
 }

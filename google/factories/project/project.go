@@ -2,8 +2,10 @@ package project
 
 import (
 	"github.com/pulumi/pulumi-gcp/sdk/v6/go/gcp/organizations"
+	"github.com/pulumi/pulumi-gcp/sdk/v6/go/gcp/serviceaccount"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/timbohiatt/pulumi/google/module/project"
+	"github.com/timbohiatt/pulumi/google/module/serviceAccount"
 )
 
 type Settings struct {
@@ -20,9 +22,10 @@ type Args struct {
 }
 
 type Factory struct {
-	Args     *Args
-	Settings *Settings
-	Project  *organizations.Project
+	Args            *Args
+	Settings        *Settings
+	Project         *organizations.Project
+	ServiceAccounts []*serviceaccount.Account
 }
 
 func (factory *Factory) Create(ctx *pulumi.Context) (err error) {
@@ -50,7 +53,24 @@ func (factory *Factory) Create(ctx *pulumi.Context) (err error) {
 	}
 	factory.Project = project.Project
 
-	// Create Service Account
+	// Create Service Accounts
+
+	// Create Pulumi Google Cloud Project Arguments Object
+	sa := &serviceAccount.Module{}
+	// Confgure Google Cloud Project - Pulumi Arguments
+	sa.Args.ProjectId = factory.Args.Name
+	sa.Args.AccountId = factory.Args.Name
+	sa.Args.DisplayName = factory.Args.Name
+	sa.Args.Description = factory.Args.Name
+	sa.Args.Disabled = false
+
+	// Create the Service Account from Module
+	err = sa.Create(ctx)
+	if err != nil {
+		return err
+	}
+	// Add Service Account to Factory Collection of Service Accounts
+	append(factory.ServiceAccounts, sa.ServiceAccount)
 
 	// Return the Factory & Error
 	return err
