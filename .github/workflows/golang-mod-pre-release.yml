@@ -22,10 +22,10 @@ jobs:
         RELEASE_BRANCHES: develop, main
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WITH_V: true
-        DEFAULT_BUMP: none
+        DEFAULT_BUMP: patch
         PRERELEASE: true
         PRERELEASE_SUFFIX: "alpha"
-        INITIAL_VERSION: 0.0.0
+        #INITIAL_VERSION: 0.0.0
     outputs:
       new_tag: ${{ steps.tag.outputs.new_tag }} 
   release:
