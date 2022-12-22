@@ -33,25 +33,25 @@ func (factory *Factory) Create(ctx *pulumi.Context) (err error) {
 	// Create Project
 
 	// Create Pulumi Google Cloud Project Arguments Object
-	project := &project.Module{}
+	prj := &project.Module{}
 
 	// Confgure Google Cloud Project - Pulumi Arguments
-	project.Args.Name = factory.Args.Name
-	project.Args.ProjectId = factory.Args.Name
-	project.Args.BillingAccount = factory.Args.BillingAccount
-	project.Args.AutoCreateNetwork = false
+	prj.Args.Name = factory.Args.Name
+	prj.Args.ProjectId = factory.Args.Name
+	prj.Args.BillingAccount = factory.Args.BillingAccount
+	prj.Args.AutoCreateNetwork = false
 	if factory.Args.ParentFolder != "" {
-		project.Args.FolderId = factory.Args.ParentFolder
+		prj.Args.FolderId = factory.Args.ParentFolder
 	} else {
-		project.Args.OrgId = factory.Args.ParentOrg
+		prj.Args.OrgId = factory.Args.ParentOrg
 	}
 
 	// Create the Project from Module
-	err = project.Create(ctx)
+	err = prj.Create(ctx)
 	if err != nil {
 		return err
 	}
-	factory.Project = project.Project
+	factory.Project = prj.Project
 
 	// Create Service Accounts
 
@@ -69,6 +69,7 @@ func (factory *Factory) Create(ctx *pulumi.Context) (err error) {
 	if err != nil {
 		return err
 	}
+	
 	// Add Service Account to Factory Collection of Service Accounts
 	append(factory.ServiceAccounts, sa.ServiceAccount)
 
