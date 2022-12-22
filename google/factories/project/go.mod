@@ -7,7 +7,6 @@ require (
 	github.com/pulumi/pulumi/sdk/v3 v3.50.0
 	github.com/timbohiatt/pulumi/google/modules/project v0.0.0-20221221161649-5947f48183af
 	github.com/timbohiatt/pulumi/google/modules/serviceAccount v0.0.0-20221221161649-5947f48183af
-
 )
 
 require (
