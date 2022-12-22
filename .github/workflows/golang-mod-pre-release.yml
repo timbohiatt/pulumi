@@ -22,7 +22,7 @@ jobs:
         RELEASE_BRANCHES: develop, main
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WITH_V: true
-        DEFAULT_BUMP: patch
+        DEFAULT_BUMP: none
         PRERELEASE: true
         PRERELEASE_SUFFIX: "alpha"
         INITIAL_VERSION: 0.0.0
