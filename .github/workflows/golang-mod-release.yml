@@ -1,12 +1,12 @@
-name: Go Module Pre-Release
+name: Go Module Release
 run-name: ${{ github.actor }} is releasing a new Go Module version 🚀
 on:
   push:
     branches:
-      - develop
+      - main
 jobs:
   tag:
-    name: Tag Pre-Release Go Module
+    name: Tag Release Go Module
     runs-on: ubuntu-latest
     steps:
     - id: checkout
@@ -22,14 +22,14 @@ jobs:
         RELEASE_BRANCHES: develop, main
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WITH_V: true
-        DEFAULT_BUMP: patch
-        PRERELEASE: true
-        PRERELEASE_SUFFIX: "alpha"
-        INITIAL_VERSION: 0.0.0
+        DEFAULT_BUMP: minor
+        PRERELEASE: false
+        #PRERELEASE_SUFFIX: "alpha"
+        #INITIAL_VERSION: 0.0.0
     outputs:
       new_tag: ${{ steps.tag.outputs.new_tag }} 
   release:
-    name: Publish Pre-Release Go Module
+    name: Publish Release Go Module
     runs-on: ubuntu-latest
     needs: 
     - tag
@@ -40,7 +40,7 @@ jobs:
         go-version: '^1.19' # The Go version to download (if necessary) and use.
     - run: GOPROXY=proxy.golang.org go list -m github.com/${{ github.repository }}@${{ needs.tag.outputs.new_tag }}
   validate:
-    name: Validate Pre-Release Go Module
+    name: Validate Release Go Module
     needs: 
     - tag
     - release
